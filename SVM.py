@@ -31,7 +31,7 @@ attributrLevel_train, attributrLevel_test, classLevel_train, classLevel_test = t
 #%% fit SVM classifier with kernel  
 genC = [0.1, 0.5, 0.9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100]
 
-#for kernelD in ('rbf', 'linear', 'poly'):
+for kernelD in ('rbf', 'linear', 'poly'):
     print(kernelD)
     for gC in genC:
         svclassifier = SVC(C=gC, kernel=kernelD, degree=2) 
