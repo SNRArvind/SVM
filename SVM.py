@@ -32,37 +32,12 @@ attributrLevel_train, attributrLevel_test, classLevel_train, classLevel_test = t
 genC = [0.1, 0.5, 0.9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100]
 
 #for kernelD in ('rbf', 'linear', 'poly'):
-#    print(kernelD)
-#    for gC in genC:
-#        svclassifier = SVC(C=gC, kernel=kernelD, degree=2) 
-#        svclassifier.fit(attributrLevel_train, classLevel_train) 
-#        #%% predict the testdata
-#        y_pred = svclassifier.predict(attributrLevel_test) 
-#        print(accuracy_score(classLevel_test, y_pred))
+    print(kernelD)
+    for gC in genC:
+        svclassifier = SVC(C=gC, kernel=kernelD, degree=2) 
+        svclassifier.fit(attributrLevel_train, classLevel_train) 
+        #%% predict the testdata
+        y_pred = svclassifier.predict(attributrLevel_test) 
+        print(accuracy_score(classLevel_test, y_pred))
 
-#%% print required output  
-print('linear kernel')
-for gC in genC:
-    svclassifier = svm.LinearSVC(C=gC) 
-#       svclassifier = SVC(C=gC, kernel='rbf')
-    svclassifier.fit(attributrLevel_train, classLevel_train) 
-    #%% predict the testdata
-    y_pred = svclassifier.predict(attributrLevel_test) 
-    print(gC, accuracy_score(classLevel_test, y_pred))
-
-print('rbf kernel')  
-for gC in genC:
-    svclassifier = SVC(C=gC, kernel='rbf')
-    svclassifier.fit(attributrLevel_train, classLevel_train) 
-    #%% predict the testdata
-    y_pred = svclassifier.predict(attributrLevel_test) 
-    print(gC, accuracy_score(classLevel_test, y_pred))
-    
-print('Quadratic kernel')
-for gC in genC:
-    svclassifier = SVC(C=gC, kernel='poly', degree=2)
-    svclassifier.fit(attributrLevel_train, classLevel_train) 
-    #%% predict the testdata
-    y_pred = svclassifier.predict(attributrLevel_test) 
-    print(gC, accuracy_score(classLevel_test, y_pred))
     
